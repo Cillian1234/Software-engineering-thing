@@ -1,0 +1,32 @@
+body {
+    background-color: #222626;
+    color: rgb(255,255,255,0.75);
+}
+
+.grid-item {
+    background-color: #222626;
+}
+
+ul.flexnav {
+    font-size: 1vw;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 4vw;
+}
+
+a {
+    text-decoration: underline;
+    color: #6a7777;
+}
+a:hover {
+    color: #946cd2;
+}
+
+#contactinfo {
+    font-size: 12px;
+}
