@@ -1,3 +1,31 @@
+<?php
+$servername = "localhost";
+$username = "Cillian";
+$password = "Cillian80";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, "swe");
+if (array_key_exists('test', $_POST)) {
+    testButton();
+}
+
+function testButton(): void
+{
+
+    global$conn;
+    $sql = "CREATE TABLE Testing1 (
+    id INT(10) PRIMARY KEY,
+    fname VARCHAR(45),
+    sname VARCHAR(45)
+)";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "done";
+    }
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +37,6 @@
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
     <script src="../JavaScript/jquery.flexnav.min.js" type="text/javascript"></script>
-    <script src="../JavaScript/Basket.js"></script>
-    <script src="../JavaScript/JQuery.js"></script>
     <title>Editor</title>
 </head>
 
@@ -109,6 +135,9 @@
         <p>
             Footer stuff, eventually finish editing and export buttons
         </p>
+        <form method = "post">
+            <input type="submit" value="test" name="test">
+        </form>
     </div>
 
 </div>
