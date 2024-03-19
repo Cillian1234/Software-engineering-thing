@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "Cillian1";
+$username = "Cillian";
 $password = "Cillian80";
 
 // Create connection
@@ -34,18 +34,18 @@ echo "Connected successfully";
         </div>
         <nav>
             <ul data-breakpoint-em="50" class="flexnav">
-                <li><a href="Index.html">Home</a></li>
-                <li><a href="404.html"></a></li>
-                <li><a href="Editor.html">Editor</a></li>
-                <li><a href="404.html"></a></li>
-                <li><a href="LoginPanel.html">Log in</a></li>
+                <li><a href="Index.php">Home</a></li>
+                <li><a href="404.php"></a></li>
+                <li><a href="Editor.php">Editor</a></li>
+                <li><a href="404.php"></a></li>
+                <li><a href="LoginPanel.php">Log in</a></li>
             </ul>
         </nav>
         <script>$(".flexnav").flexNav();</script>
     </div>
     <div class="grid-item main">
         <p id="Intro text"> To get started, hit the button below! </p>
-            <hr>
+        <hr>
         <a id="startButton" href="Editor.html"><input type="button" value="Begin editing"></a>
 
     </div>
