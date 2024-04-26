@@ -1,42 +1,9 @@
 <?php
-$servername = "localhost";
-$username = "Cillian";
-$password = "Cillian80";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, "swe");
-if (array_key_exists('test', $_POST)) {
-    testButton();
-}
 
-function testButton(): void
-{
-
-    global$conn;
-    $sql = "CREATE TABLE Testing1 (
-    id INT(10) PRIMARY KEY,
-    fname VARCHAR(45),
-    sname VARCHAR(45)
-)";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "done";
-    }
-
-}
+include "templates/header.php"
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/MainStyle.css">
-    <link rel="stylesheet" href="../CSS/EditorGrid.css">
-    <link rel="stylesheet" href="../CSS/flexnav.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-    <script src="../JavaScript/jquery.flexnav.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../../CSS/EditorGrid.css">
     <title>Editor</title>
 </head>
 
@@ -69,27 +36,27 @@ function testButton(): void
         <div class="grid-item item2">
             <div class="item-grid-container Style2">
                 <p>Text + image piece</p>
-                <img src="../Images/DropMenuIcon.png">
+                <img src="../../Images/DropMenuIcon.png">
             </div>
         </div>
 
         <div class="grid-item item3">
             <div class="item-grid-container Style3">
                 <p>Text + image + button piece</p>
-                <img src="../Images/DropMenuIcon.png">
+                <img src="../../Images/DropMenuIcon.png">
                 <input type="button" value="Button">
             </div>
         </div>
 
         <div class="grid-item item4">
             <div class="item-grid-container Style1">
-                <img src="../Images/DropMenuIcon.png">
+                <img src="../../Images/DropMenuIcon.png">
             </div>
         </div>
 
         <div class="grid-item item5">
             <div class="item-grid-container Style2">
-                <img src="../Images/DropMenuIcon.png">
+                <img src="../../Images/DropMenuIcon.png">
                 <input type="button" value="Button">
             </div>
         </div>
@@ -143,3 +110,7 @@ function testButton(): void
 </div>
 </body>
 </html>
+
+<?php
+include "templates/footer.php";
+?>
