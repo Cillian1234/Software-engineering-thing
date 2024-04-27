@@ -1,4 +1,5 @@
 <?php
+global $connection, $sql;
 if (isset($_POST['submit'])) {
     require "../src/common.php";
     try {
@@ -43,15 +44,15 @@ if (isset($_POST['submit'])) {
         <div class="grid-item review1">
             <form action="" method="post" name="Login_Form" class="form-signin">
                 <label for="firstname">First Name</label>
-                <input type="text" name="firstname" id="firstname" required>
+                <input type="text" name="firstname" id="firstname" required> <br>
                 <label for="lastname">Last Name</label>
-                <input type="text" name="lastname" id="lastname" required>
+                <input type="text" name="lastname" id="lastname" required> <br>
                 <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email" required> <br>
                 <label for="age">Age</label>
-                <input type="text" name="age" id="age">
+                <input type="text" name="age" id="age"> <br>
                 <label for="location">Location</label>
-                <input type="text" name="location" id="location">
+                <input type="text" name="location" id="location"> <br>
                 <input type="submit" name="submit" value="Submit">
             </form>
         </div>

@@ -1,8 +1,6 @@
 <?php
-global $connection, $sql;
+global $Username, $Password;
 require ('../src/config.php');
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,27 +21,23 @@ require ('../src/config.php');
     <div class="grid-item header"><h1>Log in</h1></div>
     <div class="grid-item review1">
         <form action="" method="post" name="Login_Form" class="form-signin">
-            <label for="firstname">First Name</label>
-            <input type="text" name="firstname" id="firstname" required>
-            <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" id="lastname" required>
-            <label for="email">Email Address</label>
-            <input type="email" name="email" id="email" required>
-            <label for="age">Age</label>
-            <input type="text" name="age" id="age">
-            <label for="location">Location</label>
-            <input type="text" name="location" id="location">
-            <input type="submit" name="submit" value="Submit">
-
+            <h2 class="form-signin-heading">Please log in</h2>
+            <label for="inputUsername" >Username</label>
+            <input name="Username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+            <br>
+            <label for="inputPassword">Password</label>
+            <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <button name="Submit" value="Login" class="button" type="submit">Log in</button>
+            <p>Don't have an account? <a href="Signup.php">Sign up</a> instead.</p>
         </form>
 
         <?php
         session_start();
-        require '../src/createNewUserDBEntry.php';
+        require_once "../src/common.php";
 
         if(isset($_POST['Submit']))
         {
-            if(($_POST['Username'] == $Username) && ($_POST['Password'] == $Password)) {
+            if((escape($_POST['Username']) == $Username) && (escape($_POST['Password']) == $Password)) {
                 $_SESSION['Username'] = $Username;
                 $_SESSION['Active'] = true;
                 header("location:Index.php");
@@ -53,11 +47,10 @@ require ('../src/config.php');
             }
         }
         ?>
+
     </div>
 </div>
 </body>
 </html>
 
-<?php
-require "templates/footer.php";
-?>
+
