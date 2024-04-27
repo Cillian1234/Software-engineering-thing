@@ -1,7 +1,7 @@
 <?php
 
 
-include "templates/header.php"
+require_once "templates/header.php"
 ?>
     <link rel="stylesheet" href="../../CSS/EditorGrid.css">
     <title>Editor</title>
@@ -19,8 +19,8 @@ include "templates/header.php"
                 <li><a href="Index.php">Home</a></li>
                 <li><a href="404.php"></a></li>
                 <li><a href="Editor.php">Editor</a></li>
-                <li><a href="404.php"></a></li>
-                <li><a href="LoginPanel.php">Log in</a></li>
+                <li><a href="GeneralEditor.php">Project Settings</a></li>
+                <li><a href="Login.php">Log in</a></li>
             </ul>
         </nav>
         <script>$(".flexnav").flexNav();</script>
@@ -112,5 +112,5 @@ include "templates/header.php"
 </html>
 
 <?php
-include "templates/footer.php";
+require_once "templates/footer.php";
 ?>

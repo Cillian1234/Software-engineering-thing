@@ -1,5 +1,5 @@
 <?php
-include "templates/header.php"
+require_once "templates/header.php"
 ?>
     <title>404</title>
 </head>
@@ -10,5 +10,5 @@ include "templates/header.php"
 </html>
 
 <?php
-include "templates/footer.php";
+require_once "templates/footer.php";
 ?>

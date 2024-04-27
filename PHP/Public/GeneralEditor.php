@@ -1,9 +1,7 @@
 <?php
-
 require_once "templates/header.php"
 ?>
-
-    <title>Home</title>
+    <title>Project settings</title>
 </head>
 <body>
 <div class="grid-container">
@@ -23,23 +21,30 @@ require_once "templates/header.php"
         </nav>
         <script>$(".flexnav").flexNav();</script>
     </div>
+
     <div class="grid-item main">
-        <p id="Intro text"> To get started, hit the button below! </p>
+        <p id="Intro text">Here you can change various settings of your project!</p>
         <hr>
-        <a id="startButton" href="Editor.php"><input type="button" value="Begin editing"></a>
+        <p>Font, background colour, etc.</p>
 
     </div>
     <div class="grid-item right">
-        <h1>Status: You are logged in <?php echo
-        $_SESSION['Username'];?> </h1>
-        <hr>
-        <form action="logout.php" method="post" name="Logout_Form" class="form-signin">
-            <button name="Submit" value="Logout" class="button" type="submit">Log out</button>
-        </form>
+        <h2>Settings</h2>
+        <label for="background colour">Background colour</label>
+        <input type="color" name="background colour"><br>
+
+        <label for="background colour">Font</label>
+        <select name="font select" id="font select">
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Arial">Arial</option>
+            <option value="other font">other font</option>
+        </select><br>
+
+        <label for="background colour">Background colour</label>
+        <input type="color" name="background colour"><br>
     </div>
 </div>
 </body>
-
 <?php
 require_once "templates/footer.php";
 ?>
