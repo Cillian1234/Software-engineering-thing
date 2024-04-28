@@ -14,10 +14,9 @@ session_start();
     <link rel="stylesheet" href="../../CSS/HomeGrid.css">
     <link rel="stylesheet" href="../../CSS/flexnav.css">
     <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
-    <script src="../JavaScript/jquery.flexnav.min.js" type="text/javascript"></script>
+    <title>Log out</title>
 </head>
 
-<title>Log out</title>
 <body>
 <div class="grid-container">
     <div class="grid-item footer">

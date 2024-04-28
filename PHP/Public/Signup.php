@@ -1,25 +1,40 @@
 <?php
-global $connection, $sql;
+global $connection;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 if (isset($_POST['submit'])) {
     require "../src/common.php";
-    try {
-        require_once "../src/DBconnect.php";
-        $new_user = array(
-            "firstname" => escape($_POST['firstname']),
-            "lastname" => escape($_POST['lastname']),
-            "email" => escape($_POST['email']),
-            "age" => escape($_POST['age']),
-            "location" => escape($_POST['location'])
-        );
+    require_once "../src/DBconnect.php";
+    require_once "../src/CheckDBForDupeUsername.php";
+    $DBChecker = new CheckDBForDupeUsername();
+    $Username = escape($_POST['username']);
+    $UsernameExists = $DBChecker->CheckUsername($Username, $connection);
+    if ($UsernameExists) {
+        $error = "Username already exists, Please choose a unique username";
+    } else {
 
-        $sql = sprintf( "INSERT INTO %s (%s) values (%s)", "users", implode(", ",
-            array_keys($new_user)), ":" . implode(", :", array_keys($new_user)) );
+        try {
+            
+            $new_user = array(
+                "username" => $Username,
+                "password" => password_hash(escape($_POST['password']), PASSWORD_DEFAULT),
+                "email" => escape($_POST['email']),
+                "age" => escape($_POST['age']),
+                "location" => escape($_POST['location'])
+            );
 
-        $statement = $connection->prepare($sql);
-        $statement->execute($new_user);
+            $sql = sprintf("INSERT INTO %s (%s) values (%s)", "users", implode(", ",
+                array_keys($new_user)), ":" . implode(", :", array_keys($new_user)));
 
-    } catch (PDOException $error) {
-        echo $sql . "<br>" . $error->getMessage();
+            $statement = $connection->prepare($sql);
+            $statement->execute($new_user);
+
+            header("location:Login.php");
+        } catch (PDOException $error) {
+            echo $sql . "<br>" . $error->getMessage();
+        }
     }
 }
 ?>
@@ -42,11 +57,12 @@ if (isset($_POST['submit'])) {
 <div class="grid-container">
     <div class="grid-item header"><h1>Sign up</h1></div>
         <div class="grid-item review1">
+            <?php if (isset($error)) echo "<p>$error</p>"?>
             <form action="" method="post" name="Login_Form" class="form-signin">
-                <label for="firstname">First Name</label>
-                <input type="text" name="firstname" id="firstname" required> <br>
-                <label for="lastname">Last Name</label>
-                <input type="text" name="lastname" id="lastname" required> <br>
+                <label for="username">username</label>
+                <input type="text" name="username" id="username" required> <br>
+                <label for="password">password</label>
+                <input type="password" name="password" id="password" required> <br>
                 <label for="email">Email Address</label>
                 <input type="email" name="email" id="email" required> <br>
                 <label for="age">Age</label>
