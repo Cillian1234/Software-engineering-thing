@@ -1,0 +1,65 @@
+.EditorArea {
+    /* overall page grid */
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    grid-template-columns: auto auto;
+}
+.EditorItem {
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    font-size: 1vw;
+    border-radius: 5px;
+    border: 1px white solid;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.EditorSubItem {
+    display: flex;
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px;
+    font-size: 1vw;
+    border-radius: 5px;
+    border: 1px white solid;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.CustomiseItems {
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    font-size: 1vw;
+    border-radius: 5px;
+    border: 1px white solid;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.CustomiseSubItems {
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px;
+    font-size: 1vw;
+    border-radius: 5px;
+    border: 1px white solid;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.heading {
+    grid-column: span 2;
+}
+.grid-item-right {
+    display: grid;
+    text-align: center;
+    padding: 20px;
+    font-size: 1vw;
+    border-radius: 5px;
+    border: 1px white solid;
+    margin: 10px;
+    grid-template-columns: auto;
+}

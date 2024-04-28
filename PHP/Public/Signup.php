@@ -1,40 +1,29 @@
 <?php
-global $connection;
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 
 if (isset($_POST['submit'])) {
     require "../src/common.php";
-    require_once "../src/DBconnect.php";
+    require "../src/DBconnect.php";
+    require_once "../src/UploadToDatabase.php";
     require_once "../src/CheckDBForDupeUsername.php";
+
+    $Upload = new UploadToDatabase();
     $DBChecker = new CheckDBForDupeUsername();
+
     $Username = escape($_POST['username']);
     $UsernameExists = $DBChecker->CheckUsername($Username, $connection);
+
     if ($UsernameExists) {
         $error = "Username already exists, Please choose a unique username";
     } else {
+        $new_user = array(
+            "username" => $Username,
+            "password" => password_hash(escape($_POST['password']), PASSWORD_DEFAULT),
+            "email" => escape($_POST['email']),
+            "age" => escape($_POST['age']),
+            "location" => escape($_POST['location'])
+        );
 
-        try {
-            
-            $new_user = array(
-                "username" => $Username,
-                "password" => password_hash(escape($_POST['password']), PASSWORD_DEFAULT),
-                "email" => escape($_POST['email']),
-                "age" => escape($_POST['age']),
-                "location" => escape($_POST['location'])
-            );
-
-            $sql = sprintf("INSERT INTO %s (%s) values (%s)", "users", implode(", ",
-                array_keys($new_user)), ":" . implode(", :", array_keys($new_user)));
-
-            $statement = $connection->prepare($sql);
-            $statement->execute($new_user);
-
-            header("location:Login.php");
-        } catch (PDOException $error) {
-            echo $sql . "<br>" . $error->getMessage();
-        }
+        $Upload->UploadToDatabase($new_user, "users", $connection);
     }
 }
 ?>

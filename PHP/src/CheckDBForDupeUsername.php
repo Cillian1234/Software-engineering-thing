@@ -1,9 +1,9 @@
 <?php
-
 class CheckDBForDupeUsername
 {
     public function CheckUsername($Username, $connection): bool
     {
+
         try {
             $sql = "SELECT username FROM users WHERE Username = :Username";
             $statement = $connection->prepare($sql);
@@ -22,5 +22,3 @@ class CheckDBForDupeUsername
         }
     }
 }
-
-?>
