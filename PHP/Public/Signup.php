@@ -1,6 +1,7 @@
 <?php
     require "../src/DBconnect.php";
 
+
 if (isset($_POST['submit'])) {
     require "../src/common.php";
     require_once "../src/UploadToDatabase.php";
@@ -9,12 +10,16 @@ if (isset($_POST['submit'])) {
     $Upload = new UploadToDatabase();
     $DBChecker = new CheckDBForDupeUsername();
 
+    // Sanitise username
     $Username = escape($_POST['username']);
+    // Check is username already exists in DB
     $UsernameExists = $DBChecker->CheckUsername($Username, $connection);
 
+    // If username exists, error
     if ($UsernameExists) {
         $error = "Username already exists, Please choose a unique username";
     } else {
+        // Else create new db entry with info given
         $new_user = array(
             "username" => $Username,
             "password" => password_hash(escape($_POST['password']), PASSWORD_DEFAULT),
@@ -23,6 +28,7 @@ if (isset($_POST['submit'])) {
             "location" => escape($_POST['location'])
         );
 
+        // Upload info to DB
         $Upload->UploadToDatabase($new_user, "users", $connection);
     }
 }

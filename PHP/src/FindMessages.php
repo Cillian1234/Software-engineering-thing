@@ -1,4 +1,6 @@
 <?php
+// This function gets the messages saved under a given userID
+// to allow you to pick up where you left off when editing and logging out
 session_start();
 class FindMessages
 {
@@ -14,6 +16,7 @@ class FindMessages
             echo $sql . "<br>" . $error->getMessage();
         }
 
+        // Save messages to session
             $_SESSION['headerMessage'] = $result['headerMessage'];
             $_SESSION['main1Message'] = $result['main1Message'];
             $_SESSION['main2Message'] = $result['main2Message'];

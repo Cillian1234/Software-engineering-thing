@@ -1,4 +1,6 @@
 <?php
+// This function checks if a username exists within the database already
+// This is to prevent the repeated use of one username, which causes all sorts of issues
 class CheckDBForDupeUsername
 {
     public function CheckUsername($Username, $connection): bool
@@ -12,9 +14,9 @@ class CheckDBForDupeUsername
             $result = $statement->fetch();
 
             if ($result && $result['username'] === $Username){
-                return true;
+                return true; // If the username exists, return true
             } else {
-                return false;
+                return false; // else false
             }
         } catch(PDOException $error) {
             echo $sql . "<br>" . $error->getMessage();

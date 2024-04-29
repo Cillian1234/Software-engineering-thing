@@ -1,5 +1,5 @@
 <?php
-
+// This uploads data to the database, both user and message data
 class UploadToDatabase
 {
     public function UploadToDatabase($DataToUpload, $Table, $connection) {

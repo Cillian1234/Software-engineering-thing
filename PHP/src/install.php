@@ -1,4 +1,5 @@
 <?php
+// Create necessary database and tables
 global $username, $password, $options, $host, $sql;
 require "config.php";
 

@@ -28,7 +28,7 @@ if($_SESSION['Active'] == false){
              <ul data-breakpoint-em="50" class="flexnav">
                  <li><a href="Index.php">Home</a></li>
                  <li><a href="Editor.php">Editor</a></li>
-                 <li><a href="GeneralEditor.php">Project Settings</a></li>
+                 <li><a href="ProjectSettings.php">Project Settings</a></li>
                  <li><a href="about.php">About</a></li>
                  <li><a href="logoutPage.php">Log out</a></li>
              </ul>

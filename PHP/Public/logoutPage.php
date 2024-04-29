@@ -1,5 +1,6 @@
 <?php
 session_start();
+// end session and destroy session variables
     if(isset($_POST['Submit'])) {
         require_once '../src/session.php';
         $session = new session();

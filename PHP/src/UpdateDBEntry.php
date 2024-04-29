@@ -1,5 +1,5 @@
 <?php
-
+// This updates a DB entry in the messages table
 class UpdateDBEntry
 {
     public function UpdateDBEntry($DataToUpdate, $connection) {

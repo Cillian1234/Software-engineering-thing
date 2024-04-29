@@ -1,6 +1,6 @@
+<!-- Does not require header template -->
+
 <?php
-global $Username, $Password;
-require ('../src/config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +23,14 @@ require ('../src/config.php');
         require_once "../src/common.php";
         require_once '../src/DBconnect.php';
 
+//      When form is submitted
         if(isset($_POST['Submit']))
         {
+        // Sanitise entered info
         $Username = (escape($_POST['Username']));
         $Password = (escape($_POST['Password']));
 
+            // Check to see if that username exists in DB
             try {
                 $sql = "SELECT * FROM users WHERE Username = :Username";
                 $statement = $connection->prepare($sql);
@@ -38,7 +41,10 @@ require ('../src/config.php');
                 echo $sql . "<br>" . $error->getMessage();
             }
 
+            // If it does and the password is correct with that entry of the username
+            // Grab all info used elsewhere and store it in session variables and set password variable to null
             if ($result && password_verify($Password, $result['password'])) {
+                $Password = null;
                 $_SESSION['Username'] = $result['username'];
                 $_SESSION['userID'] = $result['id'];
                 $_SESSION['userEmail'] = $result['email'];
@@ -48,6 +54,7 @@ require ('../src/config.php');
                 header("location:Index.php");
                 exit;
             } else {
+                // Else display error
                 $error = "Invalid username or password, try sign up instead";
             }
         }
@@ -64,6 +71,7 @@ require ('../src/config.php');
             <label for="inputPassword">Password</label>
             <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <button name="Submit" value="Login" class="button" type="submit">Log in</button>
+            <!--link to sign up instead-->
             <p>Don't have an account? <a href="Signup.php">Sign up</a> instead.</p>
         </form>
 

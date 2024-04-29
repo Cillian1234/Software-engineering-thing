@@ -1,4 +1,5 @@
 <?php
+// This ends the session and expires all session variables
 class session
 {
     public function killSession()

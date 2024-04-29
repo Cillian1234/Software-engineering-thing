@@ -3,7 +3,7 @@ require_once "templates/header.php"
 ?>
     <title>Project settings</title>
 
-
+<!-- Nothing works -->
     <div class="grid-item main">
         <p id="Intro text">Here you can change various settings of your project!</p>
         <hr>
