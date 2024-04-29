@@ -3,7 +3,7 @@
 ?>
 <div class="grid-item footer">
     <p>
-        Blah blah blah blah, blah blah. Blah blah blah! Blah.
+        Footer Stuff
     </p>
     <hr>
     <p id="contactinfo">

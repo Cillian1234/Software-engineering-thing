@@ -16,11 +16,15 @@ class FindMessages
             echo $sql . "<br>" . $error->getMessage();
         }
 
-        // Save messages to session
+        if ($result) {
+            // Save messages to session
             $_SESSION['headerMessage'] = $result['headerMessage'];
             $_SESSION['main1Message'] = $result['main1Message'];
             $_SESSION['main2Message'] = $result['main2Message'];
             $_SESSION['aside1Message'] = $result['aside1Message'];
             $_SESSION['aside2Message'] = $result['aside2Message'];
+        } else {
+            echo "Failed to find user with userID";
+        }
     }
 }

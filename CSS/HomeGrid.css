@@ -7,9 +7,7 @@
 .grid-item {
     text-align: center;
     padding: 20px;
-    font-size: 2vw;
-    border-radius: 5px;
-    border: 1px white solid;
+    font-size: 2vw
 }
 
 .header {
