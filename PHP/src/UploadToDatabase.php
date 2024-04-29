@@ -8,7 +8,6 @@ class UploadToDatabase
             $sql = sprintf("INSERT INTO %s (%s) values (%s)", $Table, implode(", ",
                 array_keys($DataToUpload)), ":" . implode(", :", array_keys($DataToUpload)));
 
-
             $statement = $connection->prepare($sql);
             $statement->execute($DataToUpload);
         } catch (PDOException $error) {

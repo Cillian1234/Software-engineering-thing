@@ -29,7 +29,7 @@ require ('../src/config.php');
         $Password = (escape($_POST['Password']));
 
             try {
-                $sql = "SELECT id, username, password FROM users WHERE Username = :Username";
+                $sql = "SELECT * FROM users WHERE Username = :Username";
                 $statement = $connection->prepare($sql);
                 $statement->bindParam(':Username', $Username, PDO::PARAM_STR);
                 $statement->execute();
@@ -40,6 +40,10 @@ require ('../src/config.php');
 
             if ($result && password_verify($Password, $result['password'])) {
                 $_SESSION['Username'] = $result['username'];
+                $_SESSION['userID'] = $result['id'];
+                $_SESSION['userEmail'] = $result['email'];
+                $_SESSION['userAge'] = $result['age'];
+                $_SESSION['userLocation'] = $result['location'];
                 $_SESSION['Active'] = true;
                 header("location:Index.php");
                 exit;

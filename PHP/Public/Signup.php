@@ -1,8 +1,8 @@
 <?php
+    require "../src/DBconnect.php";
 
 if (isset($_POST['submit'])) {
     require "../src/common.php";
-    require "../src/DBconnect.php";
     require_once "../src/UploadToDatabase.php";
     require_once "../src/CheckDBForDupeUsername.php";
 
@@ -59,6 +59,7 @@ if (isset($_POST['submit'])) {
                 <label for="location">Location</label>
                 <input type="text" name="location" id="location"> <br>
                 <input type="submit" name="submit" value="Submit">
+                <p>Alread have an account? <a href="Login.php">Log in</a> instead.</p>
             </form>
         </div>
 

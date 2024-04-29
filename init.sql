@@ -7,12 +7,12 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL,
     email VARCHAR(50) NOT NULL,
     age INT(3),
-    location VARCHAR(50),
-    date TIMESTAMP
+    location VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS messages (
-    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    messageID INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    userID INT(11) UNSIGNED,
     headerMessage TEXT(65000),
     main1Message TEXT(65000),
     main2Message TEXT(65000),
